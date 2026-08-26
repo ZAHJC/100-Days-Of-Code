@@ -1,4 +1,7 @@
+#Sets the Gamestate
 gameState = 1
+
+# Intro visual
 print(r'''
 *******************************************************************************
           |                   |                  |                     |
@@ -21,18 +24,23 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/_____ /
 *******************************************************************************
 ''')
+
+# This section displays the background and the rules of the game.
 print("Welcome to The Adventure of the Crystal Kingdom")
 print("You are partaking on a mystical journey through the lands of Ayr to collect the kingdom crystals so that you may save them from being stolen by the Illiads")
 print("when you see (...) , press enter to continue the text || when a number is in brackets like this (1) that is the number to enter to choose that decision.")
 
+
+# Play state of game, takes user input as integers and evaluates the input using if and elif and checks the gamestate to make sure player is still alive to avoid any mishaps
+
 print("\nyou have come upon a split in the pathway through the castle, which way do you go, left(1) or right(2)?")
 userInput = int(input())
-if userInput == 1:
+if userInput == 1 and gameState == 1:
     print("Great, you managed to make it to the crystalis, the storage room for the kindom crystals...")
     input()
     print("You hear a knock on the door! do you hide and wait(1) or do you dive out the window into the winding river(2)?")
     userInput = int(input())
-elif userInput != 1:
+elif userInput != 1 and gameState == 1:
     print("You have come across Bumblemore the wizard...")
     input()
     print("He casts polymorph and turns you into a frog")
@@ -50,6 +58,7 @@ elif userInput != 1 and gameState == 1:
     gameState = 0
 
 if userInput == 1:
+    # did this myself to add a little flair to the game, iterates over itself as it's a door that leads to the same room
     while userInput == 1 and gameState == 1:
         print("You have chosen the red door, somehow you have arrived at the same room, do you pick the Red(1) door, blue door(2), green door(3)")
         userInput = int(input())
