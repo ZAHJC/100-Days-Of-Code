@@ -5,15 +5,16 @@ from turtle import Turtle, Screen
 #Variables used for application
 screen = Screen()
 screen.setup(width=500, height=400)
+screen.bgcolor("grey")
 colorList = ["red", "green", "yellow", "blue", "magenta", "cyan"]
 turtleList = []
 startPositionY = -100
 startPositionX = -240
 winPositionX = 240
 leadPosition = startPositionX
+
 leadTurtle = Turtle()
-myTurtle=Turtle()
-myTurtle.position()
+leadTurtle.hideturtle()
 
 # Creates turtles based on number of colours
 for i in range(0, len(colorList)):
