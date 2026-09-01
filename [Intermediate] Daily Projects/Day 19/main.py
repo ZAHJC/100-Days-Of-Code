@@ -36,7 +36,7 @@ userBet=screen.textinput(title="Make your bet", prompt="Which color do you belie
 # Main logic for turtle movement
 while leadPosition < winPositionX:
     for i in range(0, len(turtleList)):
-        turtleList[i].forward(random.randint(0,20))
+        turtleList[i].forward(random.randint(0,16))
     for q in range(0, len(turtleList)):
         if turtleList[q].xcor() > leadPosition:
             leadPosition = turtleList[q].xcor()
