@@ -1,13 +1,19 @@
 from turtle import Turtle
+EAST_BEARING = 0
+NORTH_BEARING = 90
+WEST_BEARING = 180
+SOUTH_BEARING = 270
 
 class Snake:
     def __init__(self):
+
         self.start_size = 3
         self.body = []
         self.COLOUR = "white"
         self.WIDTH = 20
         self.shape = "square"
         self.create_snake()
+        self.head = self.body[0]
 
     def create_snake(self):
         for i in range(0,self.start_size):
@@ -30,3 +36,19 @@ class Snake:
             previousXcor = currentXcor
             previousYcor = currentYcor
 
+    def move_left(self):
+        if self.head.heading() != EAST_BEARING:
+            self.head.setheading(WEST_BEARING)
+            self.move_forward()
+    def move_right(self):
+        if self.head.heading() != WEST_BEARING:
+            self.head.setheading(EAST_BEARING)
+            self.move_forward()
+    def move_up(self):
+        if self.head.heading() != SOUTH_BEARING:
+            self.head.setheading(NORTH_BEARING)
+            self.move_forward()
+    def move_down(self):
+        if self.head.heading() != NORTH_BEARING:
+            self.head.setheading(SOUTH_BEARING)
+            self.move_forward()
