@@ -11,6 +11,7 @@ turtleList = []
 startPositionY = -100
 startPositionX = -240
 winPositionX = 240
+spacingAtStartline = 40
 leadPosition = startPositionX
 
 leadTurtle = Turtle()
@@ -28,7 +29,7 @@ for i in range(0, len(turtleList)):
     if i == 0:
         turtleList[i].goto(-240, startPositionY)
     else:
-        turtleList[i].goto(-240, startPositionY+i*40)
+        turtleList[i].goto(-240, startPositionY+i*spacingAtStartline)
 
 # Prompts user to gamble their childs uni fund
 userBet=screen.textinput(title="Make your bet", prompt="Which color do you believe will win?")
