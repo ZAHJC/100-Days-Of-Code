@@ -3,6 +3,7 @@ EAST_BEARING = 0
 NORTH_BEARING = 90
 WEST_BEARING = 180
 SOUTH_BEARING = 270
+SHAPE = "square"
 
 class Snake:
     def __init__(self):
@@ -11,18 +12,21 @@ class Snake:
         self.body = []
         self.COLOUR = "white"
         self.WIDTH = 20
-        self.shape = "square"
         self.create_snake()
         self.head = self.body[0]
 
     def create_snake(self):
         for i in range(0,self.start_size):
-            self.body.append(Turtle())
-            self.body[i].shape(self.shape)
-            self.body[i].color(self.COLOUR)
-            self.body[i].penup()
-            if i != 0:
-                self.body[i].goto(x=self.body[i-1].xcor()-self.WIDTH, y=0)
+            self.add_segment(i)
+
+
+    def add_segment(self, position):
+        self.body.append(Turtle())
+        self.body[position].shape(SHAPE)
+        self.body[position].color(self.COLOUR)
+        self.body[position].penup()
+        if position != 0:
+            self.body[position].goto(x=self.body[position - 1].xcor() - self.WIDTH, y=self.body[position - 1].ycor())
 
     def move_forward(self):
         for i in range(len(self.body)):
