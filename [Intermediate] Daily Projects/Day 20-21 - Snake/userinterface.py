@@ -1,7 +1,7 @@
 from turtle import Screen, Turtle
 
 ALIGNMENT = "center"
-FONT = ("Courier", 24, "normal")
+FONT = ("Ithaca", 24, "normal")
 
 class UserInterface:
     def __init__(self):
@@ -19,10 +19,16 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.color("white")
         self.goto(x=0, y=270)
+        self.current_highscore = 0
+        self.get_highscore()
         self.update_scoreboard()
 
+    def get_highscore(self):
+        with open("highscore.txt", "r") as file:
+            self.current_highscore = file.read()
+
     def update_scoreboard(self):
-        self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+        self.write(f"Score: {self.score}    High Score: {self.current_highscore}", align=ALIGNMENT, font=FONT)
 
     def add_score(self):
         self.score += 1
@@ -32,3 +38,6 @@ class Scoreboard(Turtle):
     def game_over(self):
         self.goto(x=0, y=0)
         self.write(f"Game Over!", align=ALIGNMENT, font=FONT)
+        if self.score > int(self.current_highscore):
+            with open("highscore.txt", "w") as file:
+                file.write(str(self.score))

@@ -46,4 +46,8 @@ while isRunning:
             isRunning = False
             scoreboard.game_over()
 
+
+
+
+
 userWindow.screen.exitonclick()
