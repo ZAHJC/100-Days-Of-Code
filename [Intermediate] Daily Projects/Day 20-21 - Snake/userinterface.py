@@ -23,6 +23,7 @@ class Scoreboard(Turtle):
         self.get_highscore()
         self.update_scoreboard()
 
+
     def get_highscore(self):
         with open("highscore.txt", "r") as file:
             self.current_highscore = file.read()
